@@ -1,40 +1,65 @@
+
+:root {
+  --white: #FFF;
+  --background: #060D23;
+  --background-hover: #383D4F;
+  --primary-blue: #00E0FE;
+  --blue-gray: #f4fcff;
+}
+
 html {
-	font-size: 16px;
-	font-family: "Poppins";
+  font-size: 16px;
+  font-family: "Mulish", sans-serif;
 }
 
 body {
-	background: salmon;
-	height: 100%;
+  height: 100%;
+  background-color: var(--blue-gray);
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .faq-container {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 12em;
+  margin-top: 12rem;
+  max-width: 37.5rem;
+  padding: 2rem;
+  border-radius: 1em;
+  background-color: var(--background);
 }
 
 details {
-	font-size: 1rem;
-	margin: 0 auto;
-	width: 100%;
-	background: #F6FAFF;
-	border-radius: 0.5rem;
-	position: relative;
-	max-width: 600px;
-  border: 1px solid #C3DEFF;
+  font-size: 1rem;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 0.5rem;
+  position: relative;
+  max-width: 37.5rem;
   transition: all 0.3s ease-in-out;
 }
 
 details:hover {
-  border: 1px solid #A4A1FF;
+  background-color: var(--background-hover);
 }
 
+details:hover svg {
+  stroke: var(--primary-blue);
+}
+
+details[open] {
+  background-color: var(--background-hover);
+}
+
+details[open] .faq-title {
+  color: var(--primary-blue);
+}
 
 summary {
   user-select: none;
@@ -46,8 +71,17 @@ summary {
   align-items: center;
 }
 
+summary svg {
+  stroke: var(--white);
+}
+
+details[open] summary svg {
+  stroke: var(--primary-blue);
+  transform: rotate(90deg);
+}
+
 summary:hover .faq-title {
-  opacity: 1;
+  color: var(--primary-blue);
 }
 
 summary::-webkit-details-marker {
@@ -58,26 +92,17 @@ summary:focus {
   outline: none;
 }
 
-summary:hover .expand-icon {
-  opacity: 1;
-}
-
 .faq-title {
-  color: blue;
+  color: var(--white);
   width: 90%;
-  opacity: 0.65;
   transition: all 250ms ease-in-out;
 }
 
 .faq-content {
-  color: #303651;
+  color: var(--white);
   padding: 0.2rem 1rem 1rem 1rem;
   font-weight: 300;
   line-height: 1.5;
-}
-
-.expand-icon {
-  opacity: 0.65;
 }
 
 .expand-icon {
